@@ -1,4 +1,9 @@
 package creature;
 
-public class Creature {
+public interface Creature {
+    boolean isAlive();
+    void showStatus();
+    String getName();
+    int getHp();
+    void setHp(int hp);
 }

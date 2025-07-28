@@ -1,4 +1,4 @@
-package monster;
+package creature.monster;
 
 public class Matango {
 }
