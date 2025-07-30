@@ -9,8 +9,7 @@ public abstract class Weapon {
         this.name = name;
         this.damage = damage;
     }
-
-    // public abstract String attackMessage();
+    public abstract String  attackMessage();
 
     public String getName() {
         return name;
@@ -23,15 +22,4 @@ public abstract class Weapon {
     public int getCost() {
         return cost;
     }
-
-    public void setCost(int cost) {
-        this.cost = cost;
-    }
-
-    public abstract String attackMessage();
 }
-
-
-
-
-

@@ -8,7 +8,7 @@ public abstract class Character implements Creature {
     private Weapon weapon;
 
     public Character(String name, int hp, Weapon weapon) {
-        if(hp < 0) {
+        if (hp < 0) {
             throw new IllegalArgumentException("初期設定に誤りがあるため、キャラクターを作成できませんでした");
         }
         this.name = name;
@@ -17,17 +17,11 @@ public abstract class Character implements Creature {
     }
 
     public final boolean isAlive() {
-        return getHp() > 0;
+        return hp > 0;
     }
-
-    public void die() {
-        System.out.println(getName() + "は死んでしまった！");
-    }
-
-    public abstract void attack(Monster target);
 
     public void showStatus() {
-        System.out.println(getName() + ": HP " + getHp());
+        System.out.println(this.name + "：HP " + this.hp);
     }
 
     public String getName() {
@@ -39,10 +33,23 @@ public abstract class Character implements Creature {
     }
 
     public void setHp(int hp) {
-        this.hp = Math.max(hp, 0);
+        if (hp < 0) {
+            this.hp = 0;
+        } else {
+            this.hp = hp;
+        }
     }
 
     public Weapon getWeapon() {
-        return weapon;
+        return this.weapon;
     }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
+
+    public String die(){
+        return this.name + "は死んでしまった！";
+    }
+
 }

@@ -1,17 +1,18 @@
 package creature.character;
 
+import creature.Creature;
 import creature.Character;
-import creature.Monster;
-import weapon.Weapon;
+import weapon.Sword;
 
 public class Hero extends Character {
-    public Hero(String name, int hp, Weapon weapon) {
-        super(name, hp, weapon);
+
+    public Hero(String name, int hp) {
+        super(name, hp,new Sword());
     }
 
-    public void attack(Monster target) {
-        int damage = getWeapon().getDamage();
-        System.out.println(getName() + "は" + getWeapon().getName() + getWeapon().attackMessage() + target.getName() + target.getSuffix() + "に" + damage + "のダメージを与えた！");
-        target.setHp(target.getHp() - damage);
+    @Override
+    public void attack(Creature target) {
+        System.out.println(getName() + "は" + getWeapon().getName() + getWeapon().attackMessage() + target.getName() + "に" + getWeapon().getDamage() + "のダメージを与えた！");
+        target.setHp(target.getHp() - getWeapon().getDamage());
     }
 }
